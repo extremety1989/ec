@@ -1,14 +1,14 @@
 import fake from "../../data/fake.json"
-export default defineEventHandler(event => {
+export default defineEventHandler((event) => {
     const {q = 0} = getQuery(event)
-    if(q !== "")
+    if(q)
     {
-        return fake
+        const filtered = fake.filter(a => a.catId == q);
+        return filtered;
     }
     else
     {
-        return fake.filter((data: any)=>{
-            data.catId.includes(q)
-        })
+        return fake;
     }
+
 })

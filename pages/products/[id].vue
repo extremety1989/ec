@@ -24,7 +24,7 @@
 
 const {id} = useRoute().params
 
-console.log("category "+id)
+// console.log("category "+id)
 
 const {data:products} = await useFetch("/api/products?q=" + id)
 </script>
