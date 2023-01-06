@@ -7,8 +7,8 @@
 
          </header>
          <nav class="container mx-auto flex justify-center">
-            <ul class="p-2" v-for="category in categories" :key="category">
-                 <li><NuxtLink :to="`/products/${category}`">{{category}}</NuxtLink></li>
+            <ul class="p-2" v-for="category in categories" :key="category.id">
+                 <li><NuxtLink :to="`/products/${category.id}`">{{category.name}}</NuxtLink></li>
              </ul>
         </nav>
        <div class="container mx-auto p-4">
@@ -25,7 +25,26 @@
   <script setup lang="ts">
      const {id} = useRoute().params
     //  const category_selected = ref(id)
-     const {data:categories} = await useFetch("https://fakestoreapi.com/products/categories")
+    //  const {data:categories} = await useFetch("https://fakestoreapi.com/products/categories")
+     const categories = [
+      {
+        id: 1,
+        name: 'Earthen Bottle',
+      },
+      {
+        id: 2,
+        name: 'Nomad Tumbler',
+      },
+      {
+        id: 3,
+        name: 'Focus Paper Refill',
+      },
+      {
+        id: 4,
+        name: 'Machined Mechanical Pencil',
+      },
+      // More products...
+    ]
   </script>
 
 <style>
